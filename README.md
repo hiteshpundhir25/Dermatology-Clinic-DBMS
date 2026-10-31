@@ -49,22 +49,22 @@ The script creates the `dermatology_clinic` database, builds the tables, loads s
 ## Example Usage
 
 ```sql
--- Full report for one appointment
-CALL sp_appointment_report(1);
+USE dermatology_clinic;
 
--- Treatments and total cost for one appointment, using a cursor
-CALL sp_treatment_cursor_report(1);
+-- List all tables in the database
+SHOW TABLES;
 
--- Total treatment cost for one appointment
-SELECT fn_appointment_total(1);
+-- Check the row count in each table
+SELECT COUNT(*) AS PatientCount FROM Patient;
+SELECT COUNT(*) AS DermatologistCount FROM Dermatologist;
+SELECT COUNT(*) AS AppointmentCount FROM Appointment;
+SELECT COUNT(*) AS TreatmentCount FROM Treatment;
 
--- Doctors with at least two appointments
-SELECT D.Name, COUNT(A.ApptID) AS AppointmentCount
-FROM Dermatologist D
-JOIN Appointment A ON A.DoctorID = D.DoctorID
-GROUP BY D.DoctorID, D.Name
-HAVING COUNT(A.ApptID) >= 2
-ORDER BY AppointmentCount DESC;
+-- Show the indexes on the Appointment table
+SHOW INDEX FROM Appointment;
+
+-- List the triggers that enforce business rules
+SHOW TRIGGERS;
 ```
 
 ![Query output](images/query_output.png)
