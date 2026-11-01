@@ -71,7 +71,7 @@ SHOW TRIGGERS;
 
 ## Documentation
 
-The full project report, with requirements, design, implementation and output, is in [`docs/Dermatology_Clinic_Project_Report.pdf`](Project_Report.pdf).
+The full project report, with requirements, design, implementation and output, is in [`Project_Report.pdf`](Project_Report.pdf).
 
 ## Future Scope
 
